@@ -41,9 +41,12 @@ export default function ExportPanel({ canvasRef, topCaption, bottomCaption, onSu
       const a = document.createElement('a')
       a.href = url
       a.download = `concrete-meme-${Date.now()}.png`
+      document.body.appendChild(a)
       a.click()
+      document.body.removeChild(a)
       toast.success('📥 Meme saved to your device!')
-    } catch {
+    } catch (err) {
+      console.error('Download error:', err)
       toast.error('Download failed. Try again.')
     } finally {
       setTimeout(() => setDownloading(false), 1000)
