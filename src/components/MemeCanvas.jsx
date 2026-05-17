@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useCanvas } from '../hooks/useCanvas'
 
-export default function MemeCanvas({ image, overlayId, intensity, topCaption, bottomCaption, stickers, showLogo, size = 500 }) {
-  const { canvasRef } = useCanvas({ image, overlayId, intensity, topCaption, bottomCaption, stickers, showLogo })
+export default function MemeCanvas({ image, overlayId, intensity, topCaption, bottomCaption, stickers, showLogo, size = 500, canvasRef: externalCanvasRef }) {
+  const { canvasRef } = useCanvas({ image, overlayId, intensity, topCaption, bottomCaption, stickers, showLogo, canvasRef: externalCanvasRef })
 
   return (
     <div style={{

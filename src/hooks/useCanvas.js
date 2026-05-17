@@ -10,8 +10,10 @@ export function useCanvas({
   bottomCaption,
   stickers,
   showLogo,
+  canvasRef: externalRef,
 }) {
-  const canvasRef = useRef(null)
+  const internalRef = useRef(null)
+  const canvasRef = externalRef || internalRef
 
   const renderCanvas = useCallback(() => {
     const canvas = canvasRef.current
